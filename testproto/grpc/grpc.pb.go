@@ -7,8 +7,8 @@
 package grpc
 
 import (
-	inner "github.com/planetscale/vtprotobuf/testproto/grpc/inner"
-	_ "github.com/planetscale/vtprotobuf/vtproto"
+	inner "github.com/tnako/vtprotobuf/testproto/grpc/inner"
+	_ "github.com/tnako/vtprotobuf/vtproto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

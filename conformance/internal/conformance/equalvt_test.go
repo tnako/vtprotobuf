@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/planetscale/vtprotobuf/testproto/proto3opt"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/tnako/vtprotobuf/testproto/proto3opt"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/structpb"

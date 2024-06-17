@@ -1,4 +1,4 @@
-module github.com/planetscale/vtprotobuf
+module github.com/tnako/vtprotobuf
 
 go 1.20
 

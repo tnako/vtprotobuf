@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/planetscale/vtprotobuf/generator"
+	"github.com/tnako/vtprotobuf/generator"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/encoding/protowire"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -520,7 +520,7 @@ func (p *marshal) field(oneof bool, numGen *counter, field *protogen.Field) {
 		panic("not implemented")
 	}
 	// Empty protobufs should emit a message or compatibility with Golang protobuf;
-	// See https://github.com/planetscale/vtprotobuf/issues/61
+	// See https://github.com/tnako/vtprotobuf/issues/61
 	if oneof && field.Desc.Kind() == protoreflect.MessageKind && !field.Desc.IsMap() && !field.Desc.IsList() {
 		p.P("} else {")
 		p.P("i = protohelpers.EncodeVarint(dAtA, i, 0)")
@@ -640,7 +640,7 @@ func (p *marshal) message(message *protogen.Message) {
 		}
 	} else {
 		// To match the wire format of proto.Marshal, oneofs have to be marshaled
-		// before fields. See https://github.com/planetscale/vtprotobuf/pull/22
+		// before fields. See https://github.com/tnako/vtprotobuf/pull/22
 
 		oneofs := make(map[string]struct{}, len(message.Fields))
 		for i := len(message.Fields) - 1; i >= 0; i-- {

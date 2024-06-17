@@ -8,7 +8,7 @@ package size
 import (
 	"strconv"
 
-	"github.com/planetscale/vtprotobuf/generator"
+	"github.com/tnako/vtprotobuf/generator"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/encoding/protowire"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -266,10 +266,10 @@ func (p *size) field(oneof bool, field *protogen.Field, sizeName string) {
 		panic("not implemented")
 	}
 	// Empty protobufs should emit a message or compatibility with Golang protobuf;
-	// See https://github.com/planetscale/vtprotobuf/issues/61
+	// See https://github.com/tnako/vtprotobuf/issues/61
 	// Size is always keysize + 1 so just hardcode that here
 	if oneof && field.Desc.Kind() == protoreflect.MessageKind && !field.Desc.IsMap() && !field.Desc.IsList() {
-		p.P("} else { n += ", strconv.Itoa(key + 1), " }")
+		p.P("} else { n += ", strconv.Itoa(key+1), " }")
 	} else if repeated || nullable {
 		p.P(`}`)
 	}

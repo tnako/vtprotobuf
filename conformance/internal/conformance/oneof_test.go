@@ -1,15 +1,16 @@
 package conformance
 
 import (
-	"github.com/planetscale/vtprotobuf/types/known/structpb"
+	"testing"
+
 	"github.com/stretchr/testify/require"
+	"github.com/tnako/vtprotobuf/types/known/structpb"
 	"google.golang.org/protobuf/proto"
 	upstreamstructpb "google.golang.org/protobuf/types/known/structpb"
-	"testing"
 )
 
 func TestEmptyOneof(t *testing.T) {
-	// Regression test for https://github.com/planetscale/vtprotobuf/issues/61
+	// Regression test for https://github.com/tnako/vtprotobuf/issues/61
 	t.Run("all proto", func(t *testing.T) {
 		msg := &TestAllTypesProto3{OneofField: &TestAllTypesProto3_OneofNestedMessage{}}
 		upstream, _ := proto.Marshal(msg)
